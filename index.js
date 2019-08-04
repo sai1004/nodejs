@@ -2,31 +2,37 @@
 // const fs = require('fs');
 // const os = require('os');
 
-// var express = require('express');
+var express = require("express");
 
-// var app = express();
+var app = express();
+
+app.use(express.urlencoded({ extended: false }));
+
+app.get("/", (req, res) => {
+  res.send(`
+    <form action='/answer' method='POST'>
+    <p> what color is the sky on a clear and sunny day ? </p>
+    <input name="skyColor" autocomplete="off">
+    <button> Submit Answer <button>
+    </form>
+    `);
+});
+
+app.get("/answer", (req, res) => {
+    res.send("Thank you for submiting the form.");
+  });
+  
+app.post("/answer", (req, res) => {
+  if (req.body.skyColor === "BLUE") {
+    res.send(`
+        <p>Congrats, Your is the correct answer </p>
+        <a href='/'> Back To Home Page </a>
+        `);
+  } else {
+    res.send(`<p> Sorry Your Answer is Not Correct </p>
+      `);
+  }
+});
 
 
-// const port = 3000;
-
-const express = require("express");
-const app = express();
-
-app.get("/", (req, res) => res.send("Hello Ji Namste"));
-
-app.listen(6000, () => console.log("Server listening on port 6000!"));
-
-
-// var server = http.createServer( (req,res)=> {
-//     res.writeHead(200, { 'Content-type': 'file/html'})
-
-//     res.end()
-// });
-
-// server.listen(port, (err) => {
-//     if (err)
-//         throw err;
-//     console.log(`server started lisrening on port: ${port}`)
-// })
-
-
+app.listen(3000, () => console.log("Server listening on port 3000!"));
