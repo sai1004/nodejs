@@ -1,0 +1,1 @@
+This is the content that going to be saved in demoWrite.txt
