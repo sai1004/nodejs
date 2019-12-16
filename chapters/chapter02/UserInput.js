@@ -11,6 +11,3 @@ rl.question('What do you think of Node.js? ', (answer) => {
 
   rl.close();
 });
-
-
-// https://nodejs.org/docs/latest-v9.x/api/readline.html

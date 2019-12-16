@@ -1,4 +1,3 @@
-const http = require("http");
 const fs = require("fs");
 const express = require("express");
 const app = express();
@@ -79,9 +78,6 @@ app.get("/delete", () => {
   // fs.unlinkSync(filename);
   // console.log("File Deleted Successfully");
 });
-
-
-
 
 
 app.listen(port, err => {
