@@ -1,5 +1,7 @@
 var http = require('http');
 var fs = require('fs');
+
+
 http.createServer(function (req, res) {
 	console.log("Port Number : 3000");
 	// change the MIME type to 'video/mp4'
