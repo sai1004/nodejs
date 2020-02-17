@@ -12,6 +12,8 @@ https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-pra
 
 https://auth0.com/blog/create-a-simple-and-secure-node-express-app/
 
+https://itnext.io/5-more-awesome-features-in-chrome-devtools-303794410fb6
+
 For Security Use Helmet npm pkg
 
 morgan for logging
