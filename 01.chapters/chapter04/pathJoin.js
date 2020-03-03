@@ -33,3 +33,6 @@ function isImage(filepath) {
 isImage('picture.png'); // true
 isImage('myProgram.exe'); // false
 isImage('pictures/selfie.jpeg'); // true
+
+
+// __dirname is useful when you want to know the immediate containing folder. You may want to get this path for several reasons:
