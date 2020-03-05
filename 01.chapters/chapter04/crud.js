@@ -71,6 +71,14 @@ app.put("/messages", (req, res) => {
  
 });
 
+
+app.use((req, res, next) => {
+  const error = new Error(`Not Found- ${res.originalUrl}`);
+  res.status(404);
+  next(error);
+});
+
+
 app.listen(port, err => {
   if (err) throw err;
   console.log(`server is listening on ${port}`);
