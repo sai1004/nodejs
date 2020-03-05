@@ -61,7 +61,8 @@ app.post("/messages", (req, res) => {
 
 app.delete("/messages", (req, res) => {
   
-  res.send(message);
+   console.log(" Got The Delete Req For Delete message");
+   res.send("I Am Deleted");
    
 });
 
