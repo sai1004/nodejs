@@ -1,59 +1,74 @@
 var express = require("express");
-var fs = require("fs");
-var app = express();
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
-const app = express();
+var fs = require("fs");
+var app = express();
 
 var port = 3000;
 
-app.use(morgan("common"));
-app.use(helmet());
+app.use(morgan("common")); // For logs
+
+app.use(helmet()); // for security
+
 app.use(
+  
   cors({
     origin: "http://localhost:3000"
   })
+  
 );
 
 
 app.get("/", (req, res) => {
+  
   res.send(" hello world");
+  
 });
+
+/* """"""""""""""""""""""" Sample data """"""""""""""""""" */
 
 var message = [
   {
     id: 1,
-    name: "sai",
-    msg: "hi this is sen"
+    name: "sam",
+    msg: "hi this is sam"
   },
   {
     id: 2,
-    name: "sai",
-    msg: "hi this is sen"
+    name: "john",
+    msg: "hi this is john"
   }
 ];
 
+
+/* """"""""""""""""""""""" Sending response to client in json format """"""""""""""""""" */
+
 app.get("/messages", (req, res) => {
-  var data = JSON.stringify(message);
-  var parsedd = JSON.parse(data);
-  res.send(parsedd);
-  // res.send('kjfdjh')
+  
+  var resData = JSON.stringify(message);
+ 
+  res.send(resData);
+ 
 });
 
+
 app.post("/messages", (req, res) => {
+  
   res.send(message);
-  // res.send('kjfdjh')
+   
 });
 
 app.delete("/messages", (req, res) => {
+  
   res.send(message);
-  // res.send('kjfdjh')
+   
 });
 
 app.put("/messages", (req, res) => {
+  
   res.send(message);
-  // res.send('kjfdjh')
+ 
 });
 
 app.listen(port, err => {
