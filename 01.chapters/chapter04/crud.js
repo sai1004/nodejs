@@ -1,8 +1,21 @@
 var express = require("express");
 var fs = require("fs");
 var app = express();
+const morgan = require("morgan");
+const helmet = require("helmet");
+const cors = require("cors");
+const app = express();
 
 var port = 3000;
+
+app.use(morgan("common"));
+app.use(helmet());
+app.use(
+  cors({
+    origin: "http://localhost:3000"
+  })
+);
+
 
 app.get("/", (req, res) => {
   res.send(" hello world");
