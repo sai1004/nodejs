@@ -51,17 +51,14 @@ if (res) {
   console.log("please enter Valid email Address ");
 }
 
-
-
-var input = '0123456789';
+var input = "0123456789";
 
 var pattern = /0-9/;
 
 var res = input.match(pattern);
 
 if (res) {
-  console.log('you have entered the correct mobile number format');
+  console.log("you have entered the correct mobile number format");
 } else {
-  console.log('please enter 0-9 numbers');
-
+  console.log("please enter 0-9 numbers");
 }

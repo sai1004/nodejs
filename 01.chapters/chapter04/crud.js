@@ -12,18 +12,13 @@ app.use(morgan("common")); // For logs
 app.use(helmet()); // for security
 
 app.use(
-  
   cors({
     origin: "http://localhost:3000"
   })
-  
 );
 
-
 app.get("/", (req, res) => {
-  
   res.send(" hello world");
-  
 });
 
 /* """"""""""""""""""""""" Sample data """"""""""""""""""" */
@@ -41,44 +36,31 @@ var message = [
   }
 ];
 
-
 /* """"""""""""""""""""""" Sending response to client in json format """"""""""""""""""" */
 
 app.get("/messages", (req, res) => {
-  
   var resData = JSON.stringify(message);
- 
   res.send(resData);
- 
 });
 
-
 app.post("/messages", (req, res) => {
-  
   res.send(message);
-   
 });
 
 app.delete("/messages", (req, res) => {
-  
-   console.log(" Got The Delete Req For Delete message");
-   res.send("I Am Deleted");
-   
+  console.log(" Got The Delete Req For Delete message");
+  res.send("I Am Deleted");
 });
 
 app.put("/messages", (req, res) => {
-  
   res.send(message);
- 
 });
-
 
 app.use((req, res, next) => {
   const error = new Error(`Not Found- ${res.originalUrl}`);
   res.status(404);
   next(error);
 });
-
 
 app.listen(port, err => {
   if (err) throw err;
