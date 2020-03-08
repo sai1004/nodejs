@@ -8,22 +8,26 @@ const port = 3000;
 
 const myOwnMiddleWare = (req, res, next) => {
   console.log("MiddleWare Applied! ");
-  next(); // if not applied next Then it will be struck here
+  next(); // if not applied next() Then it will be struck here try Remove next() and hit req and see
 };
 
-// middleware
+/* '''''''''' middleware '''''''''' */
 // do somthing in The middle
+
 app.use(morgan("common"));
 app.use(myOwnMiddleWare);
 
-// way One
-// const postRoutes = require("./routes/post"); // getting Routes From Other File
-
+/* '''''''''' way One '''''''''' */
+// getting Routes From Other File
+// const postRoutes = require("./routes/post");
 // app.get("/", postRoutes.getPosts);
 
-// way Two
+/* '''''''''' way Two '''''''''' */
 const { getPosts } = require("./routes/post");
 app.get("/", getPosts);
+
+// if we want to apply auth to any route can use own middleware
+// app.get("/", authMiddleWare , getPosts);
 
 app.listen(port, err => {
   if (!err) {
