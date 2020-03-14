@@ -15,4 +15,4 @@ readTheFile(`${__dirname}/../sample.txt`)
   .then(data => console.log(data))
   .catch(error => console.log(error.message));
 
-console.log("i will be printed first!");
+console.log("I will be printed first!"); // main thread
