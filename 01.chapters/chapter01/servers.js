@@ -6,7 +6,7 @@ const http = require("http"); // this is the core module
 
 var server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-type": "text/plain" }); // Setting Header
-  res.write("hello Node Js");
+  res.write("hello Node Js"); // output in response
   res.end();
 });
 
