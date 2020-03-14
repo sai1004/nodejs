@@ -29,7 +29,12 @@ app.get("/contacts", (req, res) => {
       JSON.stringify(contacts.queryByArg(getParams.arg, getParams.value))
     );
   }
-  
+});
+
+/* get contact details by contact number */
+app.get("/contacts/:number", (req, res) => {
+  res.setHeader("content-type", "application/json");
+  res.end(JSON.stringify(contacts.query(req.params)));
 });
 
 http.createServer(app).listen(3000, () => {
