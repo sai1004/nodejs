@@ -13,20 +13,30 @@ const contacts = require("./modules/contacts");
 
 const app = express();
 
-app.get("/contacts", (request, response) => {
-  let getParams = url.parse(request.url, true).query;
+app.use(logger("common"));
+app.use(bodyParser.json());
 
+app.get("/contacts", (req, res) => {
+
+  let getParams = url.parse(req.url, true).query;
+  
   if (Object.keys(getParams).length === 0) {
-    response.setHeader("content-type", "application/json");
-    response.end(JSON.stringify(contacts.list()));
+
+    res.setHeader("content-type", "application/json");
+    res.end(JSON.stringify(contacts.list()));
+
   } else {
-    response.setHeader("content-type", "application/json");
-    response.end(
+
+    res.setHeader("content-type", "application/json");
+    res.end(
       JSON.stringify(contacts.queryByArg(getParams.arg, getParams.value))
     );
+    
   }
+
 });
 
-http.createServer(app).listen(3000, function() {
+
+http.createServer(app).listen(3000, () => {
   console.log("Express server listening on port 3000");
 });
