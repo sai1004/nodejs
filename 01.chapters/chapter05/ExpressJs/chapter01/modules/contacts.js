@@ -10,16 +10,20 @@ exports.list = () => {
 };
 
 exports.query = number => {
-  let data = readJsonFile();
-  let dataResult = JSON.parse(data);
-  let result = dataResult.result;
+  try {
+    let data = JSON.parse(readJsonFile());
+    let result = data.result;
 
-  for (var i = 0; i < result.length; i++) {
-    var contact = result[i];
-    if (contact.primarycontactnumber === number) {
-      return contact;
+    console.log(result);
+    
+    for (let i = 0; i < result.length; i++) {
+      var contact = result[i];
+      if (contact.primarycontactnumber === number) {
+        return contact;
+      }
     }
+    return contact;
+  } catch (err) {
+    console.log(err);
   }
-  console.log(number);
-  return contact;
 };

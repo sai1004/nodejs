@@ -33,6 +33,8 @@ app.get("/contacts", (req, res) => {
 
 /* get contact details by contact number */
 app.get("/contacts/:number", (req, res) => {
+  console.log("params:",req.params);
+
   res.setHeader("content-type", "application/json");
   res.end(JSON.stringify(contacts.query(req.params)));
 });
