@@ -38,6 +38,19 @@ var message = [
 
 /* """"""""""""""""""""""" Sending response to client in json format """"""""""""""""""" */
 
+app.get("/name/:userName", (req, res) => {
+  res.status(200);
+  res.setHeader("Content-Type", "text/html");
+  res.end(` <html>
+  
+  <body>
+  
+  <h1> Hello ${req.params.userName} </h1>
+ 
+  </body>
+  </html>`);
+});
+
 app.get("/messages", (req, res) => {
   var resData = JSON.stringify(message);
   res.send(resData);
@@ -61,6 +74,9 @@ app.use((req, res, next) => {
   res.status(404);
   next(error);
 });
+
+
+
 
 app.listen(port, err => {
   if (err) throw err;
