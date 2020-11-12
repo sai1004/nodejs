@@ -38,6 +38,12 @@ app.post("/upload", (req, res) => {
   //     }
   res.status(200).send(`"File Uploaded To >>>", ${uploadPath}`);
   //   });
+
+  //   sampleFile.mv(path.join(__dirname, 'uploads', sampleFile.name), (err) => {
+  //     if (err)
+  //         return res.status(500).send(err);
+  //     res.send('File uploaded!');
+  // });
 });
 
 app.listen(port, (err) => {

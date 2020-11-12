@@ -70,3 +70,7 @@ app.post("/upload", function (req, res) {
   console.log(req.files.my_cover_photo.name);
 });
 ```
+
+resource links:
+
+      https://www.w3jar.com/node-file-upload-with-express-js/
