@@ -1,0 +1,12 @@
+max = 100;
+
+Add beneficiary(){
+Array.forEach((nominee: any)=>{
+let sumOfPercents =0;
+sumOfPercents += nominee.percentageOfBenefits;
+this.max = this.max - sumOfPercents;
+
+});
+
+}
+ 
